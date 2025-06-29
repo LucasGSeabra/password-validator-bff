@@ -13,7 +13,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests(auth -> auth
+        http.csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/auth/token")
+                )
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/token").permitAll()
                         .requestMatchers("/validar").authenticated()
                         .anyRequest().denyAll()
                 )
