@@ -31,7 +31,6 @@ public class PasswordValidatorService {
         if(!password.matches(".*\\d.*")) errors.add("A senha deve conter ao menos um dígito.");
         if(!password.matches(".*[a-z].*")) errors.add("A senha deve conter ao menos uma letra minúscula.");
         if(!password.matches(".*[A-Z].*")) errors.add("A senha deve conter ao menos uma letra maiúscula.");
-        if(!password.matches(".*[A-Z].*")) errors.add("A senha deve conter ao menos uma letra maiúscula.");
         if(password.contains(" ")) errors.add("A senha não deve conter espaços em branco.");
         if(!CheckForSpecialCharacters(password)) errors.add("A senha deve conter ao menos um caractere especial (" + GetSpecialCharactersToString() + ").");
         if(CheckForDuplicateCharacters(password)) errors.add("A senha não deve conter caracteres repetidos.");
